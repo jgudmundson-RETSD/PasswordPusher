@@ -29,7 +29,7 @@ jobs:
           context: ./
           file: '\PasswordPusher\containerization\pwpush-ephemeral\'
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/PasswordPusher:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pwpush-ephemeral:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
