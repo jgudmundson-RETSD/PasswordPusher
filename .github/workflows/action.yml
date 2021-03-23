@@ -12,9 +12,17 @@ jobs:
     steps:
       - name: Setup file system permissions
         run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
-        
+
       - name: Check Out Repo 
         uses: actions/checkout@v2
+
+      -name: gem system updates
+        run: gem update --system
+        run: gem update bundler
+        run: gem --version
+
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
 
       - name: Set up Docker Buildx
         id: buildx
