@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     container: circleci/ruby:2.7.2-node
     steps:
+      - name: Setup file system permissions
+        run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
+        
       - name: Check Out Repo 
         uses: actions/checkout@v2
 
