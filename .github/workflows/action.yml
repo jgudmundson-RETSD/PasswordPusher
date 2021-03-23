@@ -1,0 +1,10 @@
+# action.yml
+name: 'PROD-Build_PWPusher'
+
+on: [push]
+
+description: 'Build PWPusher docker for production enviroment'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args: 'build –no-cache \PasswordPusher\containerization\pwpush-ephemeral\ -t jgudmundsonretsd/pwpush-ephemeral'
