@@ -16,7 +16,7 @@ jobs:
       - name: Check Out Repo 
         uses: actions/checkout@v2
 
-      -name: gem system updates
+      - name: gem system updates
         run: gem update --system
         run: gem update bundler
         run: gem --version
