@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: '\PasswordPusher\containerization\pwpush-ephemeral\'
+          file: '/PasswordPusher/containerization/pwpush-ephemeral/'
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pwpush-ephemeral:latest
 
