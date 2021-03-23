@@ -1,9 +1,35 @@
 # action.yml
 name: 'PROD-Build_PWPusher'
+on:
+  push:
+    branches:
+      - 'master'
 
-on: [push]
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repo 
+        uses: actions/checkout@v2
 
-description: 'Build PWPusher docker for production enviroment'
-runs:
-  using: 'docker'
-  image: '\PasswordPusher\containerization\pwpush-ephemeral\'
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: '\PasswordPusher\containerization\pwpush-ephemeral\'
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/PasswordPusher:latest
+
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
