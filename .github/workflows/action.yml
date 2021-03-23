@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ${{ github.workspace }}
-          file: './PasswordPusher/containerization/pwpush-ephemeral/Dockerfile'
+          file: 'PasswordPusher/containerization/pwpush-ephemeral/Dockerfile'
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pwpush-ephemeral:latest
 
