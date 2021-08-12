@@ -7,6 +7,7 @@ FROM docker.io/ubuntu:focal
 ENV APP_ROOT=/opt/PasswordPusher
 ENV PATH=${APP_ROOT}:${PATH} HOME=${APP_ROOT}
 
+<<<<<<< HEAD
 RUN ln -fs /usr/share/zoneinfo/Canada/Winnipeg > /etc/localtime
 
 #RUN sed -i -e '1ideb mirror://mirrors.ubuntu.com/mirrors.txt focal main restricted universe multiverse\' /etc/apt/sources.list
@@ -14,10 +15,13 @@ RUN ln -fs /usr/share/zoneinfo/Canada/Winnipeg > /etc/localtime
 #RUN sed -i -e '1ideb mirror://mirrors.ubuntu.com/mirrors.txt focal-backports main restricted universe multiverse\' /etc/apt/sources.list
 #RUN sed -i -e '1ideb mirror://mirrors.ubuntu.com/mirrors.txt focal-security main restricted universe multiverse\' /etc/apt/sources.list 
 
+=======
+RUN ln -fs /usr/share/zoneinfo/Europe/Paris > /etc/localtime
+>>>>>>> parent of aec120d (Initial customization of dockerfile for fork)
 RUN apt-get update -qq && \
     apt-get install -y --assume-yes build-essential libpq-dev git curl ruby2.7 ruby2.7-dev tzdata sqlite3 ruby-sqlite3 libsqlite3-dev zlib1g-dev nodejs yarnpkg && \
     cd /opt && \
-    git clone https://github.com/jgudmundson-RETSD/PasswordPusher.git && \
+    git clone https://github.com/pglombardo/PasswordPusher.git && \
     touch ${APP_ROOT}/log/private.log && \
     cd ${APP_ROOT} && \
     chown -R 1001:root ${APP_ROOT}
