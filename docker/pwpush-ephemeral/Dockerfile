@@ -8,6 +8,7 @@ ENV APP_ROOT=/opt/PasswordPusher
 ENV PATH=${APP_ROOT}:${PATH} HOME=${APP_ROOT}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 RUN ln -fs /usr/share/zoneinfo/Canada/Winnipeg > /etc/localtime
 
 #RUN sed -i -e '1ideb mirror://mirrors.ubuntu.com/mirrors.txt focal main restricted universe multiverse\' /etc/apt/sources.list
@@ -15,6 +16,9 @@ RUN ln -fs /usr/share/zoneinfo/Canada/Winnipeg > /etc/localtime
 #RUN sed -i -e '1ideb mirror://mirrors.ubuntu.com/mirrors.txt focal-backports main restricted universe multiverse\' /etc/apt/sources.list
 #RUN sed -i -e '1ideb mirror://mirrors.ubuntu.com/mirrors.txt focal-security main restricted universe multiverse\' /etc/apt/sources.list 
 
+=======
+RUN ln -fs /usr/share/zoneinfo/Europe/Paris > /etc/localtime
+>>>>>>> parent of aec120d (Initial customization of dockerfile for fork)
 =======
 RUN ln -fs /usr/share/zoneinfo/Europe/Paris > /etc/localtime
 >>>>>>> parent of aec120d (Initial customization of dockerfile for fork)
